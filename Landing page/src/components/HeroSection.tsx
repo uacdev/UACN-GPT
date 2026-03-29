@@ -11,9 +11,9 @@ const bullets = [
 ];
 
 const HeroSection = () => (
-  <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+  <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-visible">
     {/* Background */}
-    <div className="absolute inset-0">
+    <div className="absolute inset-0 pointer-events-none">
       <img src={heroBg} alt="" className="w-full h-full object-cover opacity-40" width={1920} height={1080} />
       <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
     </div>
@@ -23,19 +23,20 @@ const HeroSection = () => (
       initial={{ opacity: 0, scale: 0.85 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 1.2, delay: 0.3 }}
-      className="absolute inset-0 flex items-center justify-center pointer-events-none"
+      className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden"
     >
       <img
         src={heroAvatar}
-        alt=""
-        className="w-[500px] md:w-[650px] lg:w-[750px] h-auto opacity-15 dark:opacity-10 animate-float select-none"
+        alt="UACN Avatar"
+        loading="eager"
+        className="w-[280px] sm:w-[400px] md:w-[650px] lg:w-[750px] h-auto opacity-15 dark:opacity-10 animate-float select-none"
         width={1024}
         height={1024}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background pointer-events-none" />
     </motion.div>
 
-    <div className="container relative z-10 mx-auto px-6 py-20 md:py-32">
+    <div className="container relative z-10 mx-auto px-4 sm:px-6 py-20 md:py-32">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
